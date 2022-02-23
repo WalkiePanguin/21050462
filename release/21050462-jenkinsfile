@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Stage 1 - 21050462') {
+            steps {
+                echo 'Stage 1 Completed-21050462'
+            }
+        }
+                stage('Parallel') {
+                    parallel{
+                        stage('Stage 2 - 21050462') {
+                          steps {
+                               echo 'Stage 2 Completed-21050462'
+            }
+                       
+           
+        }
+                 stage('Stage 3 - 21050462') {
+                            steps {
+                                echo 'Stage 3 Completed-21050462'
+            }
+                
+        
+                }
+        }
+                }
+                stage('Stage 4 - 21050462') {
+            steps {
+                echo 'Stage 4 Completed-21050462'
+            }
+        }
+                stage('Stage 5 - 21050462') {
+            steps {
+                echo 'Work Released-21050462'
+            }
+        }
+    }
+}
+
