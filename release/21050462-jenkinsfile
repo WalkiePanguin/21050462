@@ -11,7 +11,7 @@ pipeline {
                     parallel{
                         stage('Stage 2 - 21050462') {
                           steps {
-			       sh '/home/dockeradm/batch/scripts.sh'
+			       sh ./home/dockeradm/batch/scripts.sh
                                echo 'Stage 2 Completed-21050462'
             }
                        
