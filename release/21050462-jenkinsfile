@@ -26,9 +26,10 @@ pipeline {
                 }
         }
                 }
-		try{
+	
                 stage('Stage 4 - 21050462') {
             steps {
+		script{
               def userInput = input(
 			message:"Prompt: Proceed to release the work?",
 			parameters: [ 
@@ -40,8 +41,6 @@ pipeline {
 		 echo " The answer is : ${userInput}"
             }
         }
-}catch(e){
-echo "error ${e}"
 }
                 stage('Stage 5 - 21050462') {
             steps {
