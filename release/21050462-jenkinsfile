@@ -28,15 +28,22 @@ pipeline {
                 }
                 stage('Stage 4 - 21050462') {
             steps {
-              env.USERNAME = input message: 'Proceed to release the work?',
-                             parameters: [string(defaultValue: '',
-                                          description: '',
-                                          name: 'Username')]
+              def userInput = input(
+			message:"Prompt: Proceed to release the work?",
+			parameters: [ 
+					[$class: 'ChoiceParameterDefintion',
+					choices: ['Proceed','Abort'].join('\n'),
+					name: 'input',
+					description: "Menu - Select option"]
+				])
+		 echo " The answer is : ${userInput}"
             }
         }
                 stage('Stage 5 - 21050462') {
             steps {
-                echo "Username: ${env.USERNAME}"
+		 echo " The answer is : ${userInput}"
+
+                
             }
         }
     }
