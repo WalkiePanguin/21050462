@@ -28,13 +28,15 @@ pipeline {
                 }
 	
                 stage('Stage 4 - 21050462') {
+		agent none
             steps {
-		script{
-              input(message: "Hello world!", ok:'submit')
+			
+              input(message: "Proceed to release the work?", ok:'Proceed')
             }
-        }
+        
 }
                 stage('Stage 5 - 21050462') {
+		agent any
             steps {
 		echo "Work Released-21050462"
 
