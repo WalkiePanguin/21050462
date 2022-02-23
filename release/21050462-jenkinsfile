@@ -28,12 +28,15 @@ pipeline {
                 }
                 stage('Stage 4 - 21050462') {
             steps {
-                echo 'Stage 4 Completed-21050462'
+              env.USERNAME = input message: 'Proceed to release the work?',
+                             parameters: [string(defaultValue: '',
+                                          description: '',
+                                          name: 'Username')]
             }
         }
                 stage('Stage 5 - 21050462') {
             steps {
-                echo 'Work Released-21050462'
+                echo "Username: ${env.USERNAME}"
             }
         }
     }
