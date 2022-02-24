@@ -27,21 +27,32 @@ pipeline {
         }
                 }
 	
-                stage('Stage 4 - 21050462') {
-		agent none
+            stage('stage4-21050462') {
+             input{
+                message 'do you want to proceed?'
+                parameters {
+                    booleanParam(name: "Release",defaultValue:false,description:"Please tick to release build else it's will proceed without release")
+                }
+             }
             steps {
-			
-              input(message: "Proceed to release the work?", ok:'Proceed')
-            }
-        
-}
-                stage('Stage 5 - 21050462') {
-		agent any
-            steps {
-		echo "Work Released-21050462"
-
+               script{
+                if (Release.toBoolean()){
+                    stage ("Stage5-21050462"){
+                         echo "Work released-21050462"
+                    
+                    }
+                    
+                }
+                else
+                {
+                    stage("stage5-21050462"){
+                        echo "Proceeding without release"
+                    }
                 
+                }
             }
+        }
+
         }
     }
 }
