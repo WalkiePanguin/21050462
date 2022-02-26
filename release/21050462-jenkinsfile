@@ -29,7 +29,7 @@ pipeline {
 	
             stage('stage4-21050462') {
              input{
-                message 'do you want to proceed?'
+                message 'Proceed to release the work?'
                 parameters {
                     booleanParam(name: "Release",defaultValue:false,description:"Please tick to release build else it's will proceed without release")
                 }
